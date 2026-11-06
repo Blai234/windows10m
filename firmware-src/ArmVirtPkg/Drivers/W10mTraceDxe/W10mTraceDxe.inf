@@ -1,0 +1,34 @@
+## @file
+#  Diagnostic trace of the W10M boot path (LoadImage/StartImage/ExitBootServices/
+#  ResetSystem) to the PL011 UART. Diagnostic build only.
+#
+#  SPDX-License-Identifier: BSD-2-Clause-Patent
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = W10mTraceDxe
+  FILE_GUID                      = 2C9E8A41-7F3D-4C22-9B10-7E55A1C3D902
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = W10mTraceEntry
+
+[Sources]
+  W10mTraceDxe.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+
+[LibraryClasses]
+  BaseLib
+  BaseMemoryLib
+  DevicePathLib
+  MemoryAllocationLib
+  PrintLib
+  SerialPortLib
+  UefiBootServicesTableLib
+  UefiDriverEntryPoint
+  UefiRuntimeServicesTableLib
+
+[Depex]
+  TRUE

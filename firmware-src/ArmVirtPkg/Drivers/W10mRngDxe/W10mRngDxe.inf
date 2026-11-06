@@ -1,0 +1,38 @@
+## @file
+#  A minimal EFI_RNG_PROTOCOL so Windows 10 Mobile mobilestartup.efi does not
+#  reset the machine under QEMU.
+#
+#  SPDX-License-Identifier: BSD-2-Clause-Patent
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = W10mRngDxe
+  FILE_GUID                      = 7B1E1C77-1C3E-4F2A-9E55-0A6B9E6C2D01
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = W10mRngEntry
+
+[Sources]
+  W10mRngDxe.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+
+[LibraryClasses]
+  BaseLib
+  BaseMemoryLib
+  DebugLib
+  TimerLib
+  UefiBootServicesTableLib
+  UefiDriverEntryPoint
+  UefiRuntimeServicesTableLib
+
+[Protocols]
+  gEfiRngProtocolGuid               ## PRODUCES
+
+[Guids]
+  gEfiRngAlgorithmRaw               ## CONSUMES
+
+[Depex]
+  TRUE

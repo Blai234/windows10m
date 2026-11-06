@@ -1,0 +1,23 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = BootTest
+  FILE_GUID                      = 6f1c8a52-3d0e-4b8e-9a51-9b6b2f8f1c11
+  MODULE_TYPE                    = UEFI_APPLICATION
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = UefiMain
+
+[Sources]
+  BootTest.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+
+[LibraryClasses]
+  UefiApplicationEntryPoint
+  UefiLib
+  UefiBootServicesTableLib
+
+[Protocols]
+  gEfiGraphicsOutputProtocolGuid
+  gEfiLoadedImageProtocolGuid
